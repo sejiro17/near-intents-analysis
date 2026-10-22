@@ -13,3 +13,11 @@ I inspected five execution outcomes for intents.near dated 21 October 2026. Four
 I then joined receipt_actions to execution_outcomes using receipt_id, filtering for execute_intents function calls. All five sampled actions matched outcomes with SUCCESS_VALUE status.
 
 These checks show that I can link sampled actions to their receipt execution results. They do not establish the overall success rate, confirm downstream swap completion, or validate matching across the full dataset.
+
+## 22 October 2026 — Full-Day Action Matching
+
+For 21 October 2026, I counted 67,266 execute_intents actions on intents.near across 67,266 distinct receipts. Each receipt matched exactly one execution outcome within the selected day.
+
+Of these calls, 50,387 had SUCCESS_VALUE status (74.91%) and 16,879 had FAILURE status (25.09%). The status counts reconcile to the original action count.
+
+These figures describe receipt execution for one day, not unique users or completed swaps. Failure reasons, retries and trends across other dates still need investigation.
