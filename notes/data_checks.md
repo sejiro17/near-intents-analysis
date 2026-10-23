@@ -116,3 +116,22 @@ First observed means first seen within this window, not first-ever use. Previous
 
 Query: `sql/16_daily_signer_activity.sql`
 Results: `results/16_daily_signer_activity_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Receipt Execution Costs
+
+I measured gas_burnt and tokens_burnt for execute_intents receipts dated 15–21 October, including execution outcomes recorded through 22 October.
+
+The results reconcile to 402,695 receipts, with zero unmatched receipts, missing cost values or negative cost values.
+
+Recorded tokens_burnt totalled approximately 292.1178 NEAR: 248.8194 NEAR for 279,856 successful receipts and 43.2985 NEAR for 122,839 failed receipts.
+
+Failed receipts represented 30.50% of receipts and 14.82% of recorded cost. Average recorded cost was approximately 0.00088910 NEAR per successful receipt and 0.00035248 NEAR per failed receipt.
+
+escrow.ai.near accounted for approximately 40.8096 NEAR, or 94.25% of failed-receipt costs.
+
+Token amounts were converted from yoctoNEAR by dividing by 10^24, and gas units to Tgas by dividing by 10^12. The source fields use floating-point storage, so amounts are approximate.
+
+These figures cover the target receipts only, excluding other upstream and downstream execution outcomes. They do not establish NEAR Intents revenue or net token supply reduction.
+
+Query: `sql/17_daily_execution_costs.sql`
+Results: `results/17_daily_execution_costs_2026-10-15_to_2026-10-21.csv`
