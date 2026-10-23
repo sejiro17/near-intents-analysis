@@ -206,3 +206,16 @@ These are contract-reported metadata snapshots at the returned blocks, not histo
 
 Script: `analysis/06_fetch_token_metadata.py`
 Results: `results/22_top_asset_metadata.json`
+
+## 23 October 2026 — Token-Diff Amount Checks for Five Leading Assets
+
+I examined positive and negative amounts for the five most frequently referenced assets in successful execute_intents calls dated 15–21 October, including execution outcomes recorded through 22 October.
+
+The asset appearance counts and distinct call counts matched query 21. All selected amounts parsed as integers within BIGNUMERIC range, with zero invalid or out-of-range amounts. Checks across 293,410 token_diff intents found no missing, invalid or empty diff objects.
+
+For each asset, positive, negative and zero entry counts reconciled to its appearance count. Net amounts reconciled to positive totals minus negative magnitudes. All five assets had negative net amounts, with negative magnitudes slightly exceeding positive totals.
+
+Amounts remain in raw token units, and each contract is analysed separately. These totals describe signed token changes. They do not establish completed swaps, trading volume, protocol revenue or the cause of the net differences.
+
+Query: `sql/23_top_asset_token_flows.sql`
+Results: `results/23_top_asset_token_flows_2026-10-15_to_2026-10-21.csv`
