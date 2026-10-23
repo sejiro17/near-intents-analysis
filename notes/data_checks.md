@@ -101,3 +101,18 @@ These figures describe signer activity for one day, not unique people or retenti
 
 Query: `sql/15_signer_activity.sql`
 Results: `results/15_signer_activity_2026-10-21.csv`
+
+## 23 October 2026 — Daily Signer Participation
+
+I analysed successful execute_intents calls dated 15–21 October, including execution outcomes recorded through 22 October.
+
+The results reconcile to 279,856 successful calls and contain 502,916 signed items. Every day had zero decoding failures, zero missing or empty signed arrays, and zero signed items without an extracted signer.
+
+There were 147,573 distinct signer identifiers across the week, calculated by summing each day's first-observed signers. Daily active signers ranged from 17,963 to 26,589.
+
+From 16–21 October, identifiers previously observed on an earlier day within the week represented 1.33%–2.61% of daily active signers. On 21 October, 606 of 26,589 active signers had appeared earlier in the selected week.
+
+First observed means first seen within this window, not first-ever use. Previously observed shares describe daily composition, not cohort retention. Signer identifiers are not necessarily distinct people, and their roles remain unverified.
+
+Query: `sql/16_daily_signer_activity.sql`
+Results: `results/16_daily_signer_activity_2026-10-15_to_2026-10-21.csv`
