@@ -148,3 +148,18 @@ This measures repeat participation within the selected window, not user retentio
 
 Query: `sql/18_signer_active_days.sql`
 Results: `results/18_signer_active_days_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Signer Cohort Return
+
+I followed the 22,520 signer identifiers active in successful execute_intents calls on 15 October through 21 October.
+
+The starting-day count reconciles to the earlier daily signer analysis. The cohort denominator remains fixed at 22,520, and all exported daily percentages reconcile to their counts.
+
+On 16 October, 312 cohort signers were active (1.39%). On 21 October, 287 were active (1.27%). Across the six subsequent days, daily cohort activity ranged from 259 to 312 signers (1.15%–1.39%).
+
+These are separate daily activity counts, not cumulative returns or uninterrupted participation. A signer could skip a day and return later.
+
+This is an activity cohort, not a cohort of newly acquired users. It measures repeat activity by signer identifier over a short window; signer roles and ownership remain unverified.
+
+Query: `sql/19_signer_cohort_return.sql`
+Results: `results/19_signer_cohort_return_2026-10-15_to_2026-10-21.csv`
