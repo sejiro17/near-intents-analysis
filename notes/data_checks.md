@@ -163,3 +163,18 @@ This is an activity cohort, not a cohort of newly acquired users. It measures re
 
 Query: `sql/19_signer_cohort_return.sql`
 Results: `results/19_signer_cohort_return_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Intent Type Activity
+
+I extracted intent arrays from 502,916 signed items in successful execute_intents calls dated 15–21 October.
+
+There were zero invalid messages and zero missing intent arrays. Eight signed items contained empty intent arrays and therefore contributed no individual intents to the breakdown. Their purpose has not been investigated.
+
+The nonempty arrays contained 834,900 intents across 10 types, with no missing or empty intent types.
+
+Transfers accounted for 372,932 intents (44.67%), token_diff for 293,410 (35.14%), and ft_withdraw for 130,383 (15.62%). These three types accounted for 95.43% of individual intents.
+
+A call can contain multiple signed items and intent types. Counts of calls containing each type overlap and must not be summed as distinct calls. Intent types alone do not establish completed swaps or successful downstream actions.
+
+Query: `sql/20_intent_type_activity.sql`
+Results: `results/20_intent_type_activity_2026-10-15_to_2026-10-21.csv`

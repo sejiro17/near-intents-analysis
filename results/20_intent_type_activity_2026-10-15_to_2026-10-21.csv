@@ -1,0 +1,11 @@
+intent_type,intent_count,successful_calls_containing_type,intent_share_pct,signed_items_checked,invalid_messages,items_without_intents_array,items_with_empty_intents_array
+transfer,372932,221542,44.67,502916,0,0,8
+token_diff,293410,122292,35.14,502916,0,0,8
+ft_withdraw,130383,129046,15.62,502916,0,0,8
+storage_deposit,25411,25402,3.04,502916,0,0,8
+native_withdraw,7751,7751,0.93,502916,0,0,8
+nft_withdraw,1738,1736,0.21,502916,0,0,8
+mt_withdraw,1592,1588,0.19,502916,0,0,8
+auth_call,1495,1487,0.18,502916,0,0,8
+add_public_key,124,123,0.01,502916,0,0,8
+remove_public_key,64,61,0.01,502916,0,0,8
