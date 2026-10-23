@@ -70,6 +70,16 @@ One call can contain several intent types. These counts describe individual inte
 
 ![Intent type activity](charts/04_intent_type_activity.png)
 
+### Asset references were concentrated
+
+Across 293,410 token_diff intents, 1,626 distinct asset identifiers accounted for 584,173 asset appearances. The five most frequently referenced assets contributed 54.45% of appearances.
+
+Their contracts reported the symbols USDT, USDC, ETH, USDT and SOL. Metadata was retrieved on 23 October, with block references preserved in results/22_top_asset_metadata.json. The two USDT contracts remain separate assets.
+
+These counts measure reference frequency, not trading volume or completed swaps.
+
+![Most referenced token-diff assets](charts/05_top_token_diff_assets.png)
+
 ## Data and Methodology
 
 Data comes from the public BigQuery dataset:
@@ -119,6 +129,7 @@ python3 analysis/01_daily_execution_chart.py
 python3 analysis/03_daily_signer_chart.py
 python3 analysis/04_daily_execution_cost_chart.py
 python3 analysis/05_intent_type_chart.py
+python3 analysis/07_top_asset_chart.py
 ```
 
 Generated images are saved in charts/. Running the SQL queries requires BigQuery access and may incur query charges.
