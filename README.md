@@ -8,9 +8,9 @@ This project examines execution outcomes, signer participation and receipt execu
 
 ## Project Status
 
-Analysis in progress. The current findings cover execute_intents calls to intents.near dated 15–21 October 2026, including execution outcomes recorded through 22 October.
+Completed exploratory analysis of execute_intents calls to intents.near dated 15–21 October 2026, including execution outcomes recorded through 22 October.
 
-This seven-day window provides an initial view of activity. It does not establish long-term adoption or fully answer the economic-value question.
+This project provides a reproducible seven-day snapshot of execution outcomes, signer participation, intent types, asset references and receipt execution costs. It does not establish long-term adoption or a complete investment thesis.
 
 ## Key Findings
 
@@ -80,6 +80,18 @@ These counts measure reference frequency, not trading volume or completed swaps.
 
 ![Most referenced token-diff assets](charts/05_top_token_diff_assets.png)
 
+## Conclusion
+
+NEAR Intents recorded 402,695 execute_intents calls during the selected week, of which 279,856 executed successfully. Failures were heavily concentrated in one submitting account, making the overall failure rate an incomplete description of activity across accounts.
+
+Most signer identifiers appeared on only one day. This finding describes participation within the selected window; it does not establish user churn, because signer ownership and roles remain unverified.
+
+Successful calls contained multiple intent types and asset references. Calls, signed items and individual intents therefore measure different aspects of activity and cannot be treated as interchangeable measures of completed swaps.
+
+The selected receipts incurred approximately 292.12 NEAR in recorded execution costs. This measures one component of execution activity, but does not establish protocol revenue, net token supply reduction or investment value accruing to NEAR holders.
+
+The evidence establishes activity during the selected week. Sustained adoption and long-term economic value remain open questions.
+
 ## Data and Methodology
 
 Data comes from the public BigQuery dataset:
@@ -101,6 +113,8 @@ Gas is converted to Tgas by dividing by 10^12. Token amounts are converted from 
 
 Detailed checks and investigation notes are recorded in [notes/data_checks.md](notes/data_checks.md).
 
+For the five most frequently referenced assets, token-diff amounts were validated as integers and converted into token units using exact decimal arithmetic. Conversions use contract metadata retrieved on 23 October; historical decimals were not independently verified. Each contract remains separate, and the resulting amounts are not presented as trading volume or dollar values.
+
 ## Limitations
 
 - The observation window covers seven days.
@@ -111,7 +125,7 @@ Detailed checks and investigation notes are recorded in [notes/data_checks.md](n
 - Failed-call causes and retries have not been established across the dataset.
 - Execution costs alone do not establish economic value accruing to NEAR.
 
-## Remaining Research
+## Future Research
 
 - Extend the observation period to assess sustained activity.
 - Extend the repeat-participation analysis to longer periods and additional activity cohorts.
