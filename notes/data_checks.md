@@ -73,3 +73,16 @@ Calls, signed items and signer identifiers therefore measure different things. I
 Query: `sql/11_inspect_successful_intents.sql`
 Sample: `results/11_successful_intents_sample_2026-10-21.csv`
 Decoder: `analysis/02_inspect_signed_intents.py`
+
+## 23 October 2026 — Signer Extraction Coverage
+
+I checked signer extraction across all 50,387 successful execute_intents calls dated 21 October, allowing execution outcomes through 22 October.
+
+All calls decoded and contained nonempty signed arrays, totalling 85,897 signed items. The initial nep413-only extractor recovered 83,236 signer occurrences. The remaining 2,661 items used erc191, raw_ed25519, webauthn, tip191, sep53 and ton_connect.
+
+After inspecting an example of each additional format and extending the extraction rules, all 85,897 signed items yielded a nonempty signer_id. Every successful call had all signers extracted.
+
+This confirms extraction coverage for this day's successful calls. It does not measure distinct signers, verify their roles, or establish coverage on other dates. Signer identifiers should not be interpreted as distinct people.
+
+Queries: `sql/12_signer_extraction_coverage.sql`, `sql/13_inspect_signing_standards.sql` and `sql/14_full_signer_extraction_coverage.sql`.
+Results: the corresponding CSV exports in `results/`.

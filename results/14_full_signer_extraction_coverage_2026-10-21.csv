@@ -1,0 +1,2 @@
+successful_calls,undecodable_calls,calls_without_signed_array,calls_with_empty_signed_array,signed_items,nep413_items,other_or_missing_standard_items,items_with_extracted_signer,calls_with_all_signers_extracted
+50387,0,0,0,85897,83236,2661,85897,50387
