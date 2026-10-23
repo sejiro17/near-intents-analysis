@@ -35,3 +35,14 @@ I inspected five failed execute_intents receipts and traced one to its originati
 The failed receipt contains a transfer event in its logs. I therefore cannot treat that event alone as evidence of a completed transfer.
 
 This is one inspected example. It does not establish which condition triggered the error or explain the other failed calls.
+
+## 23 October 2026 — Failure Concentration by Submitting Account
+
+I grouped execute_intents calls on 21 October 2026 by receipt_predecessor_account_id. The results contain 17 submitting accounts and reconcile to 67,266 calls, 50,387 successful executions and 16,879 failures.
+
+escrow.ai.near submitted 15,781 calls, all of which failed. It accounted for 93.49% of the day's failures. Across the other submitting accounts combined, 1,098 of 51,485 calls failed (2.13%).
+
+The overall failure rate of 25.09% was therefore heavily concentrated in one submitting account. I have kept all accounts in the analysis. These accounts are not necessarily individual users, and I have not established whether the failures were retries or shared the same cause.
+
+Query: `sql/08_failures_by_account.sql`
+Results: `results/08_failures_by_account_2026-10-21.csv`
