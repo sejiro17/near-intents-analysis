@@ -61,3 +61,15 @@ This establishes persistent failure concentration during the selected week. It d
 
 Queries: `sql/09_daily_execution_checks.sql` and `sql/10_daily_failure_concentration.sql`
 Results: the corresponding CSVs in `results/`.
+
+## 23 October 2026 — Inspecting Signed Intents
+
+I decoded the arguments of five successful execute_intents calls from 21 October 2026. All five decoded successfully, containing 11 signed items across 9 distinct signer identifiers. All sampled signed items used nep413.
+
+One signer, blockzen-1-main.near, appeared in three calls. The sample included token_diff, transfer, storage_deposit and ft_withdraw intents. One call contained only ft_withdraw.
+
+Calls, signed items and signer identifiers therefore measure different things. I have not verified signer roles, and distinct signers should not be interpreted as distinct people. This exploratory sample does not establish the distribution across all successful calls.
+
+Query: `sql/11_inspect_successful_intents.sql`
+Sample: `results/11_successful_intents_sample_2026-10-21.csv`
+Decoder: `analysis/02_inspect_signed_intents.py`
