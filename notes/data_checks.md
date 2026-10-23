@@ -46,3 +46,18 @@ The overall failure rate of 25.09% was therefore heavily concentrated in one sub
 
 Query: `sql/08_failures_by_account.sql`
 Results: `results/08_failures_by_account_2026-10-21.csv`
+
+## 23 October 2026 — Seven-Day Failure Concentration
+
+I analysed execute_intents calls dated 15–21 October 2026, allowing execution outcomes through 22 October. Each day's action count matched its distinct receipt count, and every receipt matched exactly one outcome.
+
+The daily results reconcile to 402,695 calls: 279,856 successful receipt executions and 122,839 failures. There were no other or missing statuses.
+
+escrow.ai.near submitted 116,775 calls, all of which failed, with zero successes on every day examined. It contributed 95.06% of the week's failures.
+
+The overall failure rate was 30.50%. Across all other submitting accounts combined, 6,064 of 285,920 calls failed (2.12%). I retained all accounts in the analysis.
+
+This establishes persistent failure concentration during the selected week. It does not establish a common error cause, identify retries, or measure unique users or completed swaps.
+
+Queries: `sql/09_daily_execution_checks.sql` and `sql/10_daily_failure_concentration.sql`
+Results: the corresponding CSVs in `results/`.
