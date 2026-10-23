@@ -135,3 +135,16 @@ These figures cover the target receipts only, excluding other upstream and downs
 
 Query: `sql/17_daily_execution_costs.sql`
 Results: `results/17_daily_execution_costs_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Signer Active Days
+
+I grouped signer identifiers by the number of days they appeared in successful execute_intents calls during 15–21 October.
+
+The distribution reconciles to 147,573 distinct signers and 150,251 signer-days, matching the earlier daily participation results.
+
+Of these identifiers, 146,301 (99.14%) appeared on one day, while 1,272 appeared on multiple days. There were 131 identifiers active on all seven days.
+
+This measures repeat participation within the selected window, not user retention. Signer identifiers are not necessarily distinct people, and identifiers first observed later in the week had fewer opportunities to return.
+
+Query: `sql/18_signer_active_days.sql`
+Results: `results/18_signer_active_days_2026-10-15_to_2026-10-21.csv`
