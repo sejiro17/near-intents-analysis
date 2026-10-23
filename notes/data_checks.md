@@ -86,3 +86,18 @@ This confirms extraction coverage for this day's successful calls. It does not m
 
 Queries: `sql/12_signer_extraction_coverage.sql`, `sql/13_inspect_signing_standards.sql` and `sql/14_full_signer_extraction_coverage.sql`.
 Results: the corresponding CSV exports in `results/`.
+
+## 23 October 2026 — Signer Activity on 21 October
+
+I counted 26,589 distinct signer identifiers in successful execute_intents calls. Their signed-item counts sum to 85,897, matching the extraction coverage result.
+
+Of these signers, 25,442 (95.69%) appeared in exactly one successful call during the day, while 1,147 appeared in multiple calls.
+
+Ranked by signed-item count, the top five signers contributed 39.58% of signed items and the top ten contributed 54.04%.
+
+solver-priv-liq.near contributed 11,180 signed items across 7,123 distinct successful calls. Multiple signed items can therefore belong to the same signer within a call.
+
+These figures describe signer activity for one day, not unique people or retention. Signer roles remain unverified, and calls involving multiple signers must not be counted multiple times as separate calls.
+
+Query: `sql/15_signer_activity.sql`
+Results: `results/15_signer_activity_2026-10-21.csv`
