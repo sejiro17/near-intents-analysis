@@ -193,3 +193,16 @@ The asset_key column preserves BigQuery's JSON key representation, which quotes 
 
 Query: `sql/21_token_diff_assets.sql`
 Results: `results/21_token_diff_assets_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Metadata for the Five Leading Assets
+
+I requested ft_metadata from the five contracts most frequently referenced in token_diff intents, using read-only NEAR mainnet RPC calls.
+
+All five requests succeeded. The contracts reported USDT (6 decimals), USDC (6), ETH (18), USDT (6) and SOL (9), respectively, in descending order of asset appearances.
+
+The saved responses include contract identifiers, retrieval timestamps, block heights and block hashes. Responses were retrieved on 23 October at blocks 221299760–221299786.
+
+These are contract-reported metadata snapshots at the returned blocks, not historical metadata verified for 15–21 October. They do not independently establish asset backing. The two contracts reporting USDT remain separate asset identifiers.
+
+Script: `analysis/06_fetch_token_metadata.py`
+Results: `results/22_top_asset_metadata.json`

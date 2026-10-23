@@ -1,0 +1,92 @@
+[
+  {
+    "asset_id": "nep141:eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near",
+    "contract_account_id": "eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near",
+    "intent_appearances": 102976,
+    "retrieved_at_utc": "2026-10-23T22:21:36.204076+00:00",
+    "rpc_endpoint": "https://rpc.mainnet.near.org",
+    "requested_finality": "final",
+    "block_height": 221299760,
+    "block_hash": "6wjvCUaS31721hddX4GpmVt7aLRrU3JBxv8UJAJXpEYt",
+    "metadata": {
+      "spec": "ft-1.0.0",
+      "name": "Tether USD",
+      "symbol": "USDT",
+      "decimals": 6,
+      "reference": null,
+      "reference_hash": null
+    }
+  },
+  {
+    "asset_id": "nep141:eth-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.omft.near",
+    "contract_account_id": "eth-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.omft.near",
+    "intent_appearances": 76468,
+    "retrieved_at_utc": "2026-10-23T22:21:39.882109+00:00",
+    "rpc_endpoint": "https://rpc.mainnet.near.org",
+    "requested_finality": "final",
+    "block_height": 221299766,
+    "block_hash": "3rU5UWXHvaZJttV2VEtPN1KBKPuqTfrmLiT8vdsX6MKx",
+    "metadata": {
+      "spec": "ft-1.0.0",
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "decimals": 6,
+      "reference": null,
+      "reference_hash": null
+    }
+  },
+  {
+    "asset_id": "nep141:eth.omft.near",
+    "contract_account_id": "eth.omft.near",
+    "intent_appearances": 53946,
+    "retrieved_at_utc": "2026-10-23T22:21:43.564346+00:00",
+    "rpc_endpoint": "https://rpc.mainnet.near.org",
+    "requested_finality": "final",
+    "block_height": 221299773,
+    "block_hash": "3xWjFca7BYHb8zwcEKfZ5MXRVWmMCkRzGb8ieos3UMFf",
+    "metadata": {
+      "spec": "ft-1.0.0",
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "decimals": 18,
+      "reference": null,
+      "reference_hash": null
+    }
+  },
+  {
+    "asset_id": "nep141:tron-d28a265909efecdcee7c5028585214ea0b96f015.omft.near",
+    "contract_account_id": "tron-d28a265909efecdcee7c5028585214ea0b96f015.omft.near",
+    "intent_appearances": 43427,
+    "retrieved_at_utc": "2026-10-23T22:21:47.215158+00:00",
+    "rpc_endpoint": "https://rpc.mainnet.near.org",
+    "requested_finality": "final",
+    "block_height": 221299779,
+    "block_hash": "FggFh6heda5aynUZZKX5X7WPW6CEiQBNg9DbbSJjTYyD",
+    "metadata": {
+      "spec": "ft-1.0.0",
+      "name": "Tether USD",
+      "symbol": "USDT",
+      "decimals": 6,
+      "reference": null,
+      "reference_hash": null
+    }
+  },
+  {
+    "asset_id": "nep141:sol.omft.near",
+    "contract_account_id": "sol.omft.near",
+    "intent_appearances": 41258,
+    "retrieved_at_utc": "2026-10-23T22:21:50.873745+00:00",
+    "rpc_endpoint": "https://rpc.mainnet.near.org",
+    "requested_finality": "final",
+    "block_height": 221299786,
+    "block_hash": "8HTj6StnzpghMTGapfBVnWH2Jt85bGgajEsWR73NXweT",
+    "metadata": {
+      "spec": "ft-1.0.0",
+      "name": "Solana",
+      "symbol": "SOL",
+      "decimals": 9,
+      "reference": null,
+      "reference_hash": null
+    }
+  }
+]
