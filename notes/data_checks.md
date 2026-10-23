@@ -219,3 +219,16 @@ Amounts remain in raw token units, and each contract is analysed separately. The
 
 Query: `sql/23_top_asset_token_flows.sql`
 Results: `results/23_top_asset_token_flows_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Normalised Token-Diff Amounts
+
+I converted the five leading assets' raw token-diff amounts into token units using the decimals recorded in the metadata snapshot retrieved on 23 October.
+
+The script used exact decimal arithmetic. All five assets passed validation, and the converted amounts reconciled exactly to the raw totals. Asset appearance counts and distinct call counts were unchanged.
+
+Each asset remains identified by its full contract identifier, including the two separate USDT contracts. The output preserves the metadata retrieval timestamps and block references.
+
+These conversions assume that the recorded decimals also apply to the selected 15–21 October window; historical decimals have not been independently verified. The amounts describe signed token changes and do not establish dollar values, trading volume, completed swaps or protocol revenue.
+
+Script: `analysis/08_normalise_token_amounts.py`
+Results: `results/24_top_asset_normalised_amounts_2026-10-15_to_2026-10-21.csv`
