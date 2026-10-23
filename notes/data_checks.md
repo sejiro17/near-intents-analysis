@@ -21,3 +21,17 @@ For 21 October 2026, I counted 67,266 execute_intents actions on intents.near ac
 Of these calls, 50,387 had SUCCESS_VALUE status (74.91%) and 16,879 had FAILURE status (25.09%). The status counts reconcile to the original action count.
 
 These figures describe receipt execution for one day, not unique users or completed swaps. Failure reasons, retries and trends across other dates still need investigation.
+
+## 23 October 2026 — Tracing a Failed Call
+
+I inspected five failed execute_intents receipts and traced one to its originating transaction using receipt_origin_transaction.
+
+- Receipt: `7tMjQpwapXuyLRHcS3Homck64cZJGFZymF9tea3KPqei`
+- Transaction: `DERcYoirdpnH8ujTtEg6MQt3D1ufEnXTaDa6qiQqgZdF`
+- Receipt error: `Smart contract panicked: insufficient balance or overflow`
+- Action index: 0
+- Source: https://nearblocks.io/txns/DERcYoirdpnH8ujTtEg6MQt3D1ufEnXTaDa6qiQqgZdF/execution
+
+The failed receipt contains a transfer event in its logs. I therefore cannot treat that event alone as evidence of a completed transfer.
+
+This is one inspected example. It does not establish which condition triggered the error or explain the other failed calls.
