@@ -36,6 +36,14 @@ Signer identifiers can represent different types of participants. These counts s
 
 ![Daily signer participation](charts/02_daily_signer_participation.png)
 
+### Repeat activity was limited within the selected week
+
+Of 147,573 distinct signer identifiers, 146,301 (99.14%) appeared on only one day. The remaining 1,272 appeared on multiple days, including 131 active on all seven days.
+
+Following the fixed cohort of 22,520 signers active on 15 October, daily activity on the six subsequent days ranged from 259 to 312 signers (1.15%–1.39% of the starting cohort).
+
+These are identifier-level observations over a short window. The cohort contains accounts already active on the starting date, not necessarily newly acquired users. Daily cohort counts are not cumulative returns.
+
 ### Failed receipts contributed a smaller share of recorded cost than of calls
 
 Recorded tokens_burnt for the target receipts totalled approximately 292.1178 NEAR:
@@ -51,6 +59,16 @@ Failed receipts represented 30.50% of calls and 14.82% of recorded execution cos
 These figures cover the target receipts only. They do not measure protocol revenue, net token supply reduction or the costs of every upstream and downstream execution outcome.
 
 ![Daily receipt execution costs](charts/03_daily_execution_costs.png)
+
+### Successful calls contained a mixture of intent types
+
+The 502,916 signed items contained 834,900 individual intents across ten types. Transfers accounted for 44.67%, token_diff for 35.14%, and ft_withdraw for 15.62%.
+
+All signed messages parsed successfully and contained intent arrays; eight arrays were empty. Every expanded intent had a nonempty type.
+
+One call can contain several intent types. These counts describe individual intents, not distinct calls or completed swaps.
+
+![Intent type activity](charts/04_intent_type_activity.png)
 
 ## Data and Methodology
 
@@ -86,7 +104,7 @@ Detailed checks and investigation notes are recorded in [notes/data_checks.md](n
 ## Remaining Research
 
 - Extend the observation period to assess sustained activity.
-- Examine repeat participation and cohort retention at the signer-identifier level.
+- Extend the repeat-participation analysis to longer periods and additional activity cohorts.
 - Investigate signer roles and the implications of activity concentration.
 - Examine how recorded execution costs relate to NEAR's economic mechanisms.
 
@@ -100,6 +118,7 @@ With Python 3 and Matplotlib installed, run from the repository root:
 python3 analysis/01_daily_execution_chart.py
 python3 analysis/03_daily_signer_chart.py
 python3 analysis/04_daily_execution_cost_chart.py
+python3 analysis/05_intent_type_chart.py
 ```
 
 Generated images are saved in charts/. Running the SQL queries requires BigQuery access and may incur query charges.
