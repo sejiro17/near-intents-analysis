@@ -178,3 +178,18 @@ A call can contain multiple signed items and intent types. Counts of calls conta
 
 Query: `sql/20_intent_type_activity.sql`
 Results: `results/20_intent_type_activity_2026-10-15_to_2026-10-21.csv`
+
+## 23 October 2026 — Assets Referenced in Token Diffs
+
+I inspected asset keys in 293,410 token_diff intents from successful execute_intents calls dated 15–21 October.
+
+All inspected intents contained nonempty diff objects, with zero missing or invalid objects. The export contains 1,626 distinct asset identifiers and 584,173 asset appearances.
+
+The five most frequently referenced identifiers accounted for 54.45% of asset appearances. The leading identifier was nep141:eth-0xdac17f958d2ee523a2206206994597c13d831ec7.omft.near, appearing in 102,976 intents across 50,673 successful calls.
+
+Asset appearances measure frequency, not token quantities, trading volume or completed swaps. Asset-level call counts overlap. Token identities and metadata have not yet been independently verified.
+
+The asset_key column preserves BigQuery's JSON key representation, which quotes identifiers containing punctuation.
+
+Query: `sql/21_token_diff_assets.sql`
+Results: `results/21_token_diff_assets_2026-10-15_to_2026-10-21.csv`
