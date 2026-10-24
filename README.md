@@ -139,6 +139,7 @@ The charts use the CSV exports stored in results/, so reproducing them does not 
 With Python 3 and Matplotlib installed, run from the repository root:
 
 ```bash
+python3 -m pip install -r requirements.txt
 python3 analysis/01_daily_execution_chart.py
 python3 analysis/03_daily_signer_chart.py
 python3 analysis/04_daily_execution_cost_chart.py
