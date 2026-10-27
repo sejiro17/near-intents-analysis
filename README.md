@@ -1,52 +1,46 @@
-# NEAR Intents: Adoption, Activity and Economic Value
+# NEAR Intents Activity Analysis
 
-## Research Question
+I analysed seven days of NEAR Intents activity to understand execution failures, repeat signer participation and recorded execution costs.
 
-Does NEAR Intents show sustained usage, and how does that activity contribute economic value to NEAR?
+The main finding was that one submitting account accounted for **95.06% of failures**—important context behind the overall failure rate of **30.50%**.
 
-This project examines execution outcomes, signer participation and receipt execution costs using public NEAR blockchain data.
+The analysis covers `execute_intents` calls to `intents.near` dated **15–21 October 2026**, including execution outcomes recorded through 22 October.
 
-## Project Status
+## What I Investigated
 
-Completed exploratory analysis of execute_intents calls to intents.near dated 15–21 October 2026, including execution outcomes recorded through 22 October.
-
-This project provides a reproducible seven-day snapshot of execution outcomes, signer participation, intent types, asset references and receipt execution costs. It does not establish long-term adoption or a complete investment thesis.
+- How often the selected receipts executed successfully or failed.
+- Whether failures were concentrated in particular submitting accounts.
+- How signer identifiers participated across the week.
+- Which intent types and assets appeared in successful calls.
+- How recorded execution costs differed between successful and failed receipts.
 
 ## Key Findings
 
-### Failures were concentrated in one submitting account
+### One submitting account accounted for most failures
 
-Across 402,695 calls, 279,856 receipts executed successfully and 122,839 failed, giving an overall failure rate of 30.50%.
+The selected week contained **402,695 calls**: 279,856 successful receipt executions and 122,839 failures.
 
-escrow.ai.near submitted 116,775 calls, all of which failed. This account contributed 95.06% of the week's failures. Across all other submitting accounts combined, the failure rate was 2.12%.
+`escrow.ai.near` submitted 116,775 calls, all of which failed. It contributed **95.06% of the week's failures**. Across all other submitting accounts combined, the failure rate was **2.12%**.
 
-One inspected failure reported “insufficient balance or overflow.” That example does not establish the cause of the remaining failures or show whether they were retries.
+One inspected failure reported “insufficient balance or overflow.” That example does not establish a common cause across the remaining failures or show whether they were retries.
 
 ![Daily execution outcomes](charts/01_daily_execution_outcomes.png)
 
-### Most daily signer identifiers had not appeared earlier in the selected week
+### Most signer identifiers appeared on one day
 
-Successful calls contained 502,916 signed items across 147,573 distinct signer identifiers. Daily active signers ranged from 17,963 to 26,589.
+Successful calls contained **502,916 signed items** across **147,573 distinct signer identifiers**.
 
-From 16–21 October, signers previously observed on an earlier day within the week represented 1.33%–2.61% of daily active signers.
+Of those identifiers, 146,301 (**99.14%**) appeared on only one day. The remaining 1,272 appeared on multiple days, including 131 active on all seven days.
 
-On 21 October, the ten signers with the highest signed-item counts contributed 54.04% of signed items.
+Among the fixed cohort of 22,520 signers active on 15 October, daily participation on subsequent days ranged from **1.15% to 1.39%** of the starting cohort.
 
-Signer identifiers can represent different types of participants. These counts should not be interpreted as distinct people, and previously observed shares are not cohort retention rates.
+These are account-identifier observations within a short window, not verified user-retention or churn rates. Signer ownership and roles remain unverified.
 
 ![Daily signer participation](charts/02_daily_signer_participation.png)
 
-### Repeat activity was limited within the selected week
+### Failed receipts represented a smaller share of cost than of calls
 
-Of 147,573 distinct signer identifiers, 146,301 (99.14%) appeared on only one day. The remaining 1,272 appeared on multiple days, including 131 active on all seven days.
-
-Following the fixed cohort of 22,520 signers active on 15 October, daily activity on the six subsequent days ranged from 259 to 312 signers (1.15%–1.39% of the starting cohort).
-
-These are identifier-level observations over a short window. The cohort contains accounts already active on the starting date, not necessarily newly acquired users. Daily cohort counts are not cumulative returns.
-
-### Failed receipts contributed a smaller share of recorded cost than of calls
-
-Recorded tokens_burnt for the target receipts totalled approximately 292.1178 NEAR:
+Recorded execution costs for the selected receipts totalled approximately **292.12 NEAR**.
 
 | Outcome | Receipts | Recorded cost (NEAR) |
 |---|---:|---:|
@@ -54,112 +48,95 @@ Recorded tokens_burnt for the target receipts totalled approximately 292.1178 NE
 | Failed | 122,839 | 43.2985 |
 | Total | 402,695 | 292.1178 |
 
-Failed receipts represented 30.50% of calls and 14.82% of recorded execution cost. escrow.ai.near accounted for approximately 40.8096 NEAR, or 94.25% of failed-receipt costs.
+Failed receipts represented **30.50% of calls** and **14.82% of recorded execution costs**.
 
-These figures cover the target receipts only. They do not measure protocol revenue, net token supply reduction or the costs of every upstream and downstream execution outcome.
+Amounts are approximate and rounded independently. They cover the selected receipts, not every upstream and downstream execution step. They do not measure protocol revenue or permanent token supply reduction.
 
 ![Daily receipt execution costs](charts/03_daily_execution_costs.png)
 
-### Successful calls contained a mixture of intent types
+### Successful calls contained several kinds of intent
 
-The 502,916 signed items contained 834,900 individual intents across ten types. Transfers accounted for 44.67%, token_diff for 35.14%, and ft_withdraw for 15.62%.
+The signed items contained **834,900 individual intents across ten types**.
 
-All signed messages parsed successfully and contained intent arrays; eight arrays were empty. Every expanded intent had a nonempty type.
+Transfers accounted for **44.67%**, `token_diff` for **35.14%**, and `ft_withdraw` for **15.62%**.
 
-One call can contain several intent types. These counts describe individual intents, not distinct calls or completed swaps.
+A call can contain multiple signed items and intent types. These counts therefore describe individual intents, not distinct calls or completed swaps.
 
 ![Intent type activity](charts/04_intent_type_activity.png)
 
 ### Asset references were concentrated
 
-Across 293,410 token_diff intents, 1,626 distinct asset identifiers accounted for 584,173 asset appearances. The five most frequently referenced assets contributed 54.45% of appearances.
+Across **293,410 `token_diff` intents**, 1,626 distinct asset identifiers accounted for 584,173 asset appearances.
 
-Their contracts reported the symbols USDT, USDC, ETH, USDT and SOL. Metadata was retrieved on 23 October, with block references preserved in results/22_top_asset_metadata.json. The two USDT contracts remain separate assets.
+The five most frequently referenced assets contributed **54.45% of appearances**. Their contracts reported the symbols USDT, USDC, ETH, USDT and SOL. The two USDT contracts remain separate assets.
 
-These counts measure reference frequency, not trading volume or completed swaps.
+Metadata was retrieved on 23 October 2026, with block references preserved in [the metadata snapshot](results/22_top_asset_metadata.json).
+
+Reference frequency is not trading volume. Token amounts for these five assets were also normalised using the recorded decimals and exact decimal arithmetic; historical decimals were not independently verified.
 
 ![Most referenced token-diff assets](charts/05_top_token_diff_assets.png)
 
-## Conclusion
+## Data and Validation
 
-NEAR Intents recorded 402,695 execute_intents calls during the selected week, of which 279,856 executed successfully. Failures were heavily concentrated in one submitting account, making the overall failure rate an incomplete description of activity across accounts.
+**Source:** `bigquery-public-data.crypto_near_mainnet_us`
 
-Most signer identifiers appeared on only one day. This finding describes participation within the selected window; it does not establish user churn, because signer ownership and roles remain unverified.
-
-Successful calls contained multiple intent types and asset references. Calls, signed items and individual intents therefore measure different aspects of activity and cannot be treated as interchangeable measures of completed swaps.
-
-The selected receipts incurred approximately 292.12 NEAR in recorded execution costs. This measures one component of execution activity, but does not establish protocol revenue, net token supply reduction or investment value accruing to NEAR holders.
-
-The evidence establishes activity during the selected week. Sustained adoption and long-term economic value remain open questions.
-
-## Data and Methodology
-
-Data comes from the public BigQuery dataset:
-
-`bigquery-public-data.crypto_near_mainnet_us`
-
-The analysis selects FUNCTION_CALL actions targeting intents.near with method_name equal to execute_intents.
+The analysis selects `FUNCTION_CALL` actions targeting `intents.near` with the method name `execute_intents`, then links them to execution outcomes by receipt identifier.
 
 For the selected week:
 
-- Each call corresponded to a distinct receipt.
+- Each selected call corresponded to a distinct receipt.
 - Every selected receipt matched exactly one execution outcome.
-- SUCCESS_VALUE and FAILURE counts reconciled to the call totals.
+- Success and failure counts reconciled to the call totals.
 - Successful-call arguments were decoded from Base64 and parsed as JSON.
-- Signer extraction covered all signed items across seven observed signing formats: nep413, erc191, raw_ed25519, webauthn, tip191, sep53 and ton_connect.
-- Cost checks found no missing or negative gas_burnt or tokens_burnt values.
+- Signer extraction covered all signed items across the seven observed signing formats.
+- Cost checks found no missing or negative gas or token-cost values.
 
-Gas is converted to Tgas by dividing by 10^12. Token amounts are converted from yoctoNEAR to NEAR by dividing by 10^24. Cost fields use floating-point storage, so reported amounts are approximate.
+Recorded token costs are converted from yoctoNEAR to NEAR by dividing by `10^24`. Source cost fields use floating-point storage, so reported amounts are approximate.
 
-Detailed checks and investigation notes are recorded in [notes/data_checks.md](notes/data_checks.md).
+Detailed methods, coverage checks and investigation notes are recorded in [notes/data_checks.md](notes/data_checks.md).
 
-For the five most frequently referenced assets, token-diff amounts were validated as integers and converted into token units using exact decimal arithmetic. Conversions use contract metadata retrieved on 23 October; historical decimals were not independently verified. Each contract remains separate, and the resulting amounts are not presented as trading volume or dollar values.
+## Interpretation Boundaries
 
-## Limitations
-
-- The observation window covers seven days.
+- Seven days cannot establish sustained adoption.
 - Successful receipt execution does not establish a completed swap or successful downstream execution.
-- Submitting accounts, signer identifiers, signed items and calls measure different things.
-- Signer roles and ownership have not been verified.
-- First observed means first seen within the selected window, not first-ever use.
-- Failed-call causes and retries have not been established across the dataset.
-- Execution costs alone do not establish economic value accruing to NEAR.
+- Submitting accounts, signer identifiers, signed items and individual intents measure different things.
+- Signer identifiers are not verified people, and their roles remain unverified.
+- First observed means first seen within this window, not first-ever use.
+- Failure causes and retries have not been established across the dataset.
+- Asset appearances are not trading volume, and recorded execution costs do not establish investment value accruing to NEAR holders.
 
-## Future Research
+## Reproduce the Charts
 
-- Extend the observation period to assess sustained activity.
-- Extend the repeat-participation analysis to longer periods and additional activity cohorts.
-- Investigate signer roles and the implications of activity concentration.
-- Examine how recorded execution costs relate to NEAR's economic mechanisms.
+The charts use saved CSV exports, so reproducing them does not require another BigQuery scan.
 
-## Reproducing the Charts
-
-The charts use the CSV exports stored in results/, so reproducing them does not require another BigQuery scan.
-
-With Python 3 and Matplotlib installed, run from the repository root:
+With Python 3 installed, run from the repository root:
 
 ```bash
-python3 -m pip install -r requirements.txt
-python3 analysis/01_daily_execution_chart.py
-python3 analysis/03_daily_signer_chart.py
-python3 analysis/04_daily_execution_cost_chart.py
-python3 analysis/05_intent_type_chart.py
-python3 analysis/07_top_asset_chart.py
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+
+python analysis/01_daily_execution_chart.py
+python analysis/03_daily_signer_chart.py
+python analysis/04_daily_execution_cost_chart.py
+python analysis/05_intent_type_chart.py
+python analysis/07_top_asset_chart.py
 ```
 
-Generated images are saved in charts/. Running the SQL queries requires BigQuery access and may incur query charges.
+Generated images are saved in `charts/`.
 
-## Tools
+The repository also includes scripts for inspecting signed intents, fetching asset metadata and normalising token amounts. Fetching fresh metadata requires network access and may produce a different snapshot.
 
-- SQL and Google BigQuery
-- Python and Matplotlib
-- VS Code
-- Git and GitHub
+SQL queries are stored in `sql/`. Running them requires BigQuery access and may incur query charges.
 
 ## Repository Structure
 
-- `sql/`: Data checks and analytical queries.
-- `results/`: Exported query results.
-- `analysis/`: Python scripts for inspection and charts.
-- `charts/`: Generated visualisations.
-- `notes/`: Research findings, checks and limitations.
+| Directory | Contents |
+|---|---|
+| `sql/` | Data checks and analytical queries. |
+| `results/` | Exported query results, metadata and derived results. |
+| `analysis/` | Python scripts for inspection, metadata retrieval, normalisation and charts. |
+| `charts/` | Generated visualisations. |
+| `notes/` | Research findings, validation checks and interpretation boundaries. |
+
+**Built with:** SQL, Google BigQuery, Python and Matplotlib.
